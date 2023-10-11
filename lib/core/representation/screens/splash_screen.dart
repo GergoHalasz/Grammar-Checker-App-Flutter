@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SpashScreen> {
           Positioned.fill(
               child: ImageHelper.loadFromAsset(
                   AssetHelper.imageBackgroundSplash,
-                  fit: BoxFit.fitWidth)),
+                  fit: BoxFit.none)),
         ],
       );
     });

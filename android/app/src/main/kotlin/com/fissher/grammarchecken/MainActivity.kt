@@ -1,4 +1,4 @@
-package com.nguyendt.grammar
+package com.fissher.grammarchecken
 
 import io.flutter.embedding.android.FlutterActivity
 
