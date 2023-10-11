@@ -110,18 +110,6 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
     super.initState();
   }
 
-  Future toggleRecording() => SpeechHelper.toggleRecording(
-      onResult: (text) => setState(() => _onSpeechResult(text)),
-      onListening: (isListening) {});
-
-  void _onSpeechResult(text) {
-    speechEnabled = false;
-    _paraphraseController.value = TextEditingValue(
-      text: text,
-      selection: TextSelection.fromPosition(TextPosition(offset: text.length)),
-    );
-  }
-
   @override
   void dispose() {
     _paraphraseController.dispose();
@@ -251,10 +239,7 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
                                                     size: 30,
                                                   ),
                                                   onPressed: () async {
-                                                    setState(() {
-                                                      speechEnabled = true;
-                                                    });
-                                                    await toggleRecording();
+                                                    
                                                   },
                                                 ),
                                               ]),

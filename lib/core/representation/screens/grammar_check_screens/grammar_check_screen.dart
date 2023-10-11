@@ -118,18 +118,6 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
     super.initState();
   }
 
-  Future toggleRecording() => SpeechHelper.toggleRecording(
-      onResult: (text) => setState(() => _onSpeechResult(text)),
-      onListening: (isListening) {});
-
-  void _onSpeechResult(text) {
-    speechEnabled = false;
-    _checkController.value = TextEditingValue(
-      text: text,
-      selection: TextSelection.fromPosition(TextPosition(offset: text.length)),
-    );
-  }
-
   @override
   void dispose() {
     _checkController.dispose();
