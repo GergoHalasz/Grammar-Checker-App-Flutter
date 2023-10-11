@@ -37,15 +37,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Future.value(true);
   }
 
-  void _launchURL(String _url) async => await canLaunch(_url)
-      ? await launch(_url)
-      : throw 'Could not launch $_url';
-  String encodeQueryParameters(Map<String, String> params) {
-    return params.entries
-        .map((e) =>
-            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
-        .join('&');
-  }
+ 
 
   @override
   void initState() {
@@ -355,7 +347,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             title: translation(context).rateUs,
                             language: "",
                             ontap: () {
-                              _launchURL("https://example.com/");
+
                             },
                           ),
                           ItemSettingWidget(
@@ -363,15 +355,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             title: translation(context).feedback,
                             language: "",
                             ontap: () {
-                              Uri emailLaunchUri = Uri(
-                                scheme: 'mailto',
-                                path: 'support@nguyendt.dev',
-                                query: encodeQueryParameters(<String, String>{
-                                  'subject':
-                                      'Grammar Checker Android - Feedback'
-                                }),
-                              );
-                              _launchURL(emailLaunchUri.toString());
+                              
                             },
                           ),
                           ItemSettingWidget(
@@ -379,7 +363,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             title: translation(context).feedback,
                             language: "",
                             ontap: () {
-                              _launchURL("https://example.com/");
+                              
                             },
                           ),
                           ItemSettingWidget(
@@ -387,7 +371,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             title: translation(context).terms,
                             language: "",
                             ontap: () {
-                              _launchURL("https://example.com/");
+                             
                             },
                           )
                         ],

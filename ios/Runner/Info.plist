@@ -26,6 +26,12 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires permission for the photo library for using the images as text entries.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires permission to the camera for using the captured foto as text entry.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires permission to the microphone for using the recorded voice as text entry.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
