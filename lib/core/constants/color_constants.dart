@@ -18,7 +18,8 @@ class ColorPalette {
   static Color textButtonColor = Color(0xFFFFFFFF);
   static Color cancelColor = Color(0xFFFF6464);
   static Color borderColor = Color(0xFFFFFFFF);
-  static Color grammarColor = Color.fromARGB(255, 206, 71, 71);
+  static Color correctColor = Color.fromARGB(255, 0, 156, 60);
+  static Color grammarColor = Color.fromARGB(255, 223, 18, 18);
   static Color typoColor = Color(0xFFEF6C00);
   static Color spellColor = Color(0xFF1565C0);
   static Color puncColor = Color(0xFFFB8C00);

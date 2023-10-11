@@ -18,8 +18,6 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:speech_to_text/speech_recognition_result.dart';
-import 'package:speech_to_text/speech_to_text.dart';
 
 import 'package:grammar/core/constants/color_constants.dart';
 import 'package:grammar/core/constants/dismension_constants.dart';
@@ -42,7 +40,7 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   var currentBackPressTime;
   final TextEditingController _checkController = TextEditingController();
   final openAI = OpenAI.instance.build(
-      token: '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',
+      token: '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',
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {
@@ -317,7 +315,8 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
                       final request = ChatCompleteText(messages: [
                         Map.of({
                           "role": "system",
-                          "content": 'Corect the phrase. Explain mistakes.'
+                          "content":
+                              'Correct the phrase without explaining mistakes.'
                         }),
                         Map.of({
                           "role": "user",
@@ -327,12 +326,12 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
 
                       final response =
                           await openAI.onChatCompletion(request: request);
-                      String completeText = "";
-                      for (var element in response!.choices) {
-                        if (element.message != null)
-                          completeText =
-                              completeText + " " + element.message!.content;
-                      }
+                      String completeText = response!.choices[0].message!.content;
+                      // for (var element in response!.choices) {
+                      //   if (element.message != null)
+                      //     completeText =
+                      //         completeText + " " + element.message!.content;
+                      // }
 
                       // if (response.statusCode != 200) {
                       //   return EasyLoading.showError(
