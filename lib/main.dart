@@ -48,6 +48,7 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: ColorPalette.backgroundColor, // Change this color to your desired color
+        statusBarIconBrightness: Brightness.dark
       ),
     );
     return MultiProvider(
