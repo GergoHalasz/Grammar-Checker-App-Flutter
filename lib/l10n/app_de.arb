@@ -1,0 +1,10 @@
+{
+  "grammar": "Grammatikprüfer",
+  "paraphrase": "Umschreibung",
+  "check": "Grammatikprüfung",
+  "requireMessage": "Bitte Inhalt eingeben",
+  "warningExit": "Erneut klicken, um die Anwendung zu beenden",
+  "typeCheckGrammar": "Geben Sie den zu korrigierenden Text ein",
+  "disconnectMessage": "Keine Verbindung, bitte schalten Sie das Netzwerk ein und versuchen Sie es später erneut!",
+  "chatGPTSystemMessage": "Korrigiere den Satz, ohne Fehler zu erklären."
+}

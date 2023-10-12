@@ -4,9 +4,6 @@ import 'package:grammar/core/constants/color_constants.dart';
 import 'package:grammar/core/constants/language_constants.dart';
 import 'package:grammar/core/provider/theme_provider.dart';
 import 'package:grammar/core/representation/screens/grammar_check_screens/grammar_check_screen.dart';
-import 'package:grammar/core/representation/screens/paraphrase_screens/paraphrase_screen.dart';
-import 'package:grammar/core/representation/screens/setting_screens/setting_screen.dart';
-import 'package:grammar/core/representation/screens/translate_screens/translate_screen.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -32,9 +29,6 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     GrammarCheckScreen(),
-    ParaphraseScreen(),
-    TranslateScreen(),
-    SettingScreen()
   ];
 
   @override

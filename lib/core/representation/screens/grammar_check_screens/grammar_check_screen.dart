@@ -11,7 +11,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grammar/core/helpers/speech_helper.dart';
-import 'package:grammar/core/representation/screens/grammar_check_screens/grammar_paraphrase_result_screen.dart';
+import 'package:grammar/core/representation/screens/grammar_check_screens/grammar_check_result_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -37,9 +37,9 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   bool speechEnabled = false;
   var currentBackPressTime;
   final TextEditingController _checkController = TextEditingController();
-  
+
   final openAI = OpenAI.instance.build(
-      token: Platform.environment['OPENAI_TOKEN'], 
+      token: "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",
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {
@@ -71,7 +71,6 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
         lockAspectRatio: false,
       )
     ]);
-    
   }
 
   void _clearTextField() {
@@ -99,6 +98,13 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   void dispose() {
     _checkController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    print(translation(context).chatGPTSystemMessage);
+    super.didChangeDependencies();
   }
 
   @override
@@ -280,8 +286,7 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
                       final request = ChatCompleteText(messages: [
                         Map.of({
                           "role": "system",
-                          "content":
-                              'Correct the phrase without explaining mistakes.'
+                          "content": translation(context).chatGPTSystemMessage
                         }),
                         Map.of({
                           "role": "user",
@@ -291,26 +296,13 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
 
                       final response =
                           await openAI.onChatCompletion(request: request);
-                      String completeText = response!.choices[0].message!.content;
-                      // for (var element in response!.choices) {
-                      //   if (element.message != null)
-                      //     completeText =
-                      //         completeText + " " + element.message!.content;
-                      // }
-
-                      // if (response.statusCode != 200) {
-                      //   return EasyLoading.showError(
-                      //       translation(context).errorMessage);
-                      // }
+                      String completeText =
+                          response!.choices[0].message!.content;
 
                       EasyLoading.dismiss();
-                      // if (jsonResult['matches'].length == 0) {
-                      //   return EasyLoading.showSuccess(
-                      //       translation(context).doneGrammar);
-                      // }
 
                       Navigator.of(context).pushNamed(
-                          GrammarParaphraseResultScreen.routeName,
+                          GrammarCheckResultScreen.routeName,
                           arguments: {
                             "checkString": _checkController.text,
                             "result": completeText

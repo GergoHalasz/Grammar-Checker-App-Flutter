@@ -1,0 +1,10 @@
+{
+  "grammar": "语法检查器",
+  "paraphrase": "释义",
+  "check": "语法检查",
+  "requireMessage": "请输入内容",
+  "warningExit": "再次点击以退出应用",
+  "typeCheckGrammar": "输入要校正的文本",
+  "disconnectMessage": "无连接，请打开网络并稍后重试！",
+  "chatGPTSystemMessage": "纠正该短语而不解释错误"
+}

@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            locale: _locale,
+            locale: Locale('ja'),
             theme: ThemeData(fontFamily: 'MarkPro'),
             onGenerateRoute: Routes.generateRoute,
             initialRoute: SpashScreen.routeName,

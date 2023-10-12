@@ -1,0 +1,10 @@
+{
+  "grammar": "Correcteur grammatical",
+  "paraphrase": "Reformulation",
+  "check": "Vérification grammaticale",
+  "requireMessage": "Veuillez taper le contenu",
+  "warningExit": "Cliquez à nouveau pour quitter l'application",
+  "typeCheckGrammar": "Saisissez le texte à corriger",
+  "disconnectMessage": "Pas de connexion, veuillez activer le réseau et réessayer plus tard !",
+  "chatGPTSystemMessage": "Corrige la phrase sans expliquer les erreurs."
+}

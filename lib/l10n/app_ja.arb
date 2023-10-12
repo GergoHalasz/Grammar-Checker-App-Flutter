@@ -1,0 +1,10 @@
+{
+  "grammar": "文法チェッカー",
+  "paraphrase": "言い換え",
+  "check": "文法チェック",
+  "requireMessage": "コンテンツを入力してください",
+  "warningExit": "アプリを終了するにはもう一度クリックしてください",
+  "typeCheckGrammar": "訂正するテキストを入力してください",
+  "disconnectMessage": "接続なし、ネットワークをオンにして後で再試行してください！",
+  "chatGPTSystemMessage": "誤りを説明せずにフレーズを修正してください。"
+}

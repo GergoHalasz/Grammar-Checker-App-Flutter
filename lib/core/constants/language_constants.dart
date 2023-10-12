@@ -5,8 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 const String LAGUAGE_CODE = 'languageCode';
 
 //languages code
-const String ENGLISH = 'en';
-const String VIETNAMESE = 'vi';
+const String LANGUAGE = 'en';
 
 Future<Locale> setLocale(String languageCode) async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
@@ -16,19 +15,13 @@ Future<Locale> setLocale(String languageCode) async {
 
 Future<Locale> getLocale() async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
-  String languageCode = _prefs.getString(LAGUAGE_CODE) ?? ENGLISH;
+  String languageCode = LANGUAGE;
   return _locale(languageCode);
 }
 
 Locale _locale(String languageCode) {
-  switch (languageCode) {
-    case ENGLISH:
-      return const Locale(ENGLISH, '');
-    case VIETNAMESE:
-      return const Locale(VIETNAMESE, '');
-    default:
-      return const Locale(ENGLISH, '');
-  }
+  
+  return const Locale(LANGUAGE);
 }
 
 AppLocalizations translation(BuildContext context) {
