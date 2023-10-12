@@ -38,8 +38,9 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   bool speechEnabled = false;
   var currentBackPressTime;
   final TextEditingController _checkController = TextEditingController();
+  
   final openAI = OpenAI.instance.build(
-      token: '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',
+      token: Platform.environment["OPENAI_TOKEN"],
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {

@@ -284,39 +284,7 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
                             ButtonWidget(
                                 title: translation(context).paraphrase,
                                 ontap: () async {
-                                  EasyLoading.show();
-                                  if (_paraphraseController.text.isEmpty) {
-                                    return EasyLoading.showToast(
-                                        translation(context).requireMessage);
-                                  }
-                                  ConnectivityResult result =
-                                      await (Connectivity()
-                                          .checkConnectivity());
-                                  if (result == ConnectivityResult.none) {
-                                    return EasyLoading.showToast(
-                                        translation(context).disconnectMessage);
-                                  }
-                                  var languageToolUri = Uri.https(
-                                      APIHelper.paraphraseAPI,
-                                      "rewritearticlepro.php",
-                                      {"action": "{rewrite}"});
-                                  print(languageToolUri);
-                                  var respone = await http.post(
-                                    languageToolUri,
-                                    body: {
-                                      "keep": "0",
-                                      "data": _paraphraseController.text
-                                    },
-                                  );
-                                  if (respone.statusCode != 200) {
-                                    return EasyLoading.showError(
-                                        translation(context).errorMessage);
-                                  }
-                                  EasyLoading.dismiss();
-                                  // ignore: use_build_context_synchronously
-                                  Navigator.of(context).pushNamed(
-                                      ParaphraseResultScreen.routeName,
-                                      arguments: respone.body);
+                                  
                                 })
                           ])))),
         ));

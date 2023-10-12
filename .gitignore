@@ -31,7 +31,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/lib/core/helpers/api_helper.dart
+lib/core/helpers/api_helper.dart
 
 # Symbolication related
 app.*.symbols
