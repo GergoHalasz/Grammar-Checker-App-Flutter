@@ -21,7 +21,6 @@ import 'package:provider/provider.dart';
 import 'package:grammar/core/constants/color_constants.dart';
 import 'package:grammar/core/constants/dismension_constants.dart';
 import 'package:grammar/core/constants/language_constants.dart';
-import 'package:grammar/core/helpers/api_helper.dart';
 import 'package:grammar/core/provider/theme_provider.dart';
 import 'package:grammar/core/representation/screens/grammar_check_screens/grammar_check_result_screen.dart';
 import 'package:grammar/core/representation/widgets/button_widget.dart';
@@ -40,7 +39,7 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   final TextEditingController _checkController = TextEditingController();
   
   final openAI = OpenAI.instance.build(
-      token: Platform.environment["OPENAI_TOKEN"],
+      token: Platform.environment['OPENAI_TOKEN'],
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {
