@@ -39,7 +39,7 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   final TextEditingController _checkController = TextEditingController();
   
   final openAI = OpenAI.instance.build(
-      token: Platform.environment['OPENAI_TOKEN'],
+      token: Platform.environment['OPENAI_TOKEN'], 
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {

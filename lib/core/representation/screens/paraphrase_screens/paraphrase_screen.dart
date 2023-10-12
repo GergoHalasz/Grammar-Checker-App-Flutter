@@ -16,7 +16,6 @@ import 'package:grammar/core/constants/color_constants.dart';
 import 'package:grammar/core/constants/dismension_constants.dart';
 import 'package:grammar/core/representation/widgets/button_widget.dart';
 import 'package:grammar/core/constants/language_constants.dart';
-import 'package:grammar/core/helpers/api_helper.dart';
 import 'package:grammar/core/helpers/speech_helper.dart';
 import 'package:grammar/core/provider/theme_provider.dart';
 import 'package:grammar/core/representation/screens/paraphrase_screens/paraphrase_result_screen.dart';
