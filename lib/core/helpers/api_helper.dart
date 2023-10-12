@@ -1,4 +1,3 @@
 class APIHelper {
-  static const String grammarCheck = "api.languagetoolplus.com";
-  static const String paraphraseAPI = "www.rewritertools.com";
+  static const String grammarCheck = "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";
 }
