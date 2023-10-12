@@ -9,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
@@ -64,29 +63,7 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
         lockAspectRatio: false,
       )
     ]);
-    if (croppedFile != null) {
-      EasyLoading.show();
-      try {
-        String resultString =
-            await SimpleOcrPlugin.performOCR(croppedFile.path);
-        var jsonResult = json.decode(resultString);
-        if (jsonResult['code'] != 200) {
-          return EasyLoading.showError(translation(context).errorMessage);
-        }
-        var text = jsonResult['text'];
-        text = text.replaceAll(RegExp(' +'), ' ');
-        EasyLoading.dismiss();
-        _paraphraseController.value = TextEditingValue(
-          text: text,
-          selection:
-              TextSelection.fromPosition(TextPosition(offset: text.length)),
-        );
-        setState(() {});
-        return EasyLoading.dismiss();
-      } catch (e) {
-        return EasyLoading.showError(translation(context).errorMessage);
-      }
-    }
+    
   }
 
   void _clearTextField() {
