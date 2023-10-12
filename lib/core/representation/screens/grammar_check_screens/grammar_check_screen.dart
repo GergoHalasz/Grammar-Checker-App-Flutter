@@ -39,7 +39,7 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   final TextEditingController _checkController = TextEditingController();
 
   final openAI = OpenAI.instance.build(
-      token: "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",
+      token: Platform.environment['OPENAI_TOKEN'],
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 10)));
 
   void pickGallery() async {
@@ -103,7 +103,6 @@ class _GrammarCheckScreenState extends State<GrammarCheckScreen> {
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
-    print(translation(context).chatGPTSystemMessage);
     super.didChangeDependencies();
   }
 
