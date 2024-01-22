@@ -81,13 +81,18 @@ class _GrammarCheckResultScreenState extends State<GrammarCheckResultScreen> {
         if (trimmedWord.isNotEmpty) {
           if (!uniqueWords2.contains(trimmedWord)) {
             formattedText.add(TextSpan(
-              text: trimmedWord,
-              style: TextStyle(
-                  decoration: isWrongText ? TextDecoration.underline : null,
+                text: trimmedWord,
+                style: TextStyle(
+                  fontSize: 16,
+                  decoration: isWrongText
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
+                  decorationColor:
+                      isWrongText ? ColorPalette.grammarColor : null,
                   color: isWrongText
                       ? ColorPalette.grammarColor
-                      : ColorPalette.correctColor),
-            ));
+                      : ColorPalette.correctColor,
+                )));
           } else {
             formattedText.add(TextSpan(text: trimmedWord));
           }
@@ -157,7 +162,7 @@ class _GrammarCheckResultScreenState extends State<GrammarCheckResultScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(
-                            height: screnSize.height * 0.08,
+                            height: screnSize.height * 0.10,
                             child: RichText(
                                 text: TextSpan(
                               children: compareText(true),
@@ -168,7 +173,7 @@ class _GrammarCheckResultScreenState extends State<GrammarCheckResultScreen> {
                         ),
                         Container(
                             padding: EdgeInsets.only(top: 8.0),
-                            height: screnSize.height * 0.06,
+                            height: screnSize.height * 0.08,
                             child: RichText(
                                 text: TextSpan(
                               children: compareText(false),

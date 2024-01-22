@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:grammar/core/constants/color_constants.dart';
 import 'package:grammar/core/constants/theme_data.dart';
 import 'package:grammar/core/representation/screens/splash_screen.dart';
@@ -13,6 +14,8 @@ import 'core/constants/language_constants.dart';
 import 'core/provider/theme_provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(const MyApp());
 }
 
@@ -47,9 +50,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: ColorPalette.backgroundColor, // Change this color to your desired color
-        statusBarIconBrightness: Brightness.dark
-      ),
+          statusBarColor: ColorPalette
+              .backgroundColor, // Change this color to your desired color
+          statusBarIconBrightness: Brightness.dark),
     );
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => ThemeNotifier())],
@@ -59,7 +62,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            locale: Locale('ja'),
+            locale: Locale('en'),
             theme: ThemeData(fontFamily: 'MarkPro'),
             onGenerateRoute: Routes.generateRoute,
             initialRoute: SpashScreen.routeName,
